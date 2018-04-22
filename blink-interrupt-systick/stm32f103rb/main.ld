@@ -9,6 +9,17 @@ MEMORY
 
 SECTIONS
 {
-  .text : { *(.isr_vector) *(.after_vectors) *(.text) } > FLASH
-  .bss : { *(.bss) } > RAM
+	.text :
+		{
+			*(.isr_vector)
+			*(.after_vectors)
+			*(.text)
+		} > FLASH
+
+	.bss :
+		{
+			__bss_start__ = .;     	/* symbol for c code to initialize bss section */
+			*(.bss)
+			__bss_end__ = .;        /* symbol for c code to initialize bss section */
+		} > RAM
 }

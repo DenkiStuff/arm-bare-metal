@@ -1,51 +1,26 @@
+#include "stm32f1xx.h"
+#include "interrupt.h"
 
-#define _stackInit 0x20005000U
+// Begin and End addresses for the .bss section; symbols defined in linker script
+extern unsigned int __bss_start__;
+extern unsigned int __bss_end__;
 
 extern void __attribute__((noreturn,weak)) c_entry(void);
 
 void __attribute__ ((section(".after_vectors"),noreturn)) Reset_Handler (void)
 {
-  c_entry();
+
+	// Initialize bss section by iterating and clearing word by word.
+	// It is assumed that the pointers are word aligned.
+	unsigned int *p = &__bss_start__;
+	while (p <= &__bss_end__) {
+		*p++ = 0;	
+	}
+
+	c_entry();
 }
 
 void __attribute__ ((section(".after_vectors"))) Default_Handler(void)
 {
 	while(1);
 }
-
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) NMI_Handler(void);
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) HardFault_Handler(void);
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) MemManage_Handler(void);
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) BusFault_Handler(void);
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) UsageFault_Handler(void);
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) SVC_Handler(void);
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) DebugMon_Handler(void);
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) PendSV_Handler(void);
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) SysTick_Handler(void);
-
-typedef void(* const pHandler)(void);
-
-// The vector table.
-// The linker script to place at correct location in memory.
-
-__attribute__ ((section(".isr_vector"),used)) pHandler __isr_vectors[] =
-{
-	//core exceptions
-	(pHandler)_stackInit,	// Inital Stack Pointer
-	Reset_Handler,			// reset handler
-	NMI_Handler,			// NMI handler
-	HardFault_Handler,		// hard fault handler
-	MemManage_Handler,		// MPU fault handler
-	BusFault_Handler,		// bus fault handler
-	UsageFault_Handler,		// usage fault handler
-	0x00,					// reserved
-	0x00,					// reserved
-	0x00,					// reserved
-	0x00,					// reserved
-	SVC_Handler,			// SVCall handler
-	DebugMon_Handler,		// debug monitor handler
-	0x00,					// reserved
-	PendSV_Handler,			// PendSV handler
-	SysTick_Handler,		// systick handler
-};
-
