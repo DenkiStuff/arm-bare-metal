@@ -20,6 +20,7 @@ SECTIONS
 		{
 			__bss_start__ = .;     	/* symbol for c code to initialize bss section */
 			*(.bss)
+			*(COMMON)
 			__bss_end__ = .;        /* symbol for c code to initialize bss section */
 		} > RAM
 }

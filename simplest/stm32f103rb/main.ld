@@ -8,5 +8,5 @@ MEMORY
 
 SECTIONS
 {
-  .text : { *(INT_VECTOR_TABLE) *(.text) } > FLASH
+  .text : { *(STACK_INIT) *(INT_VECTOR_TABLE) *(.text) } > FLASH
 }
