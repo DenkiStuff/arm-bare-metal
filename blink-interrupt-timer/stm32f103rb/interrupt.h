@@ -1,7 +1,6 @@
 // Reset_Handler prototype. full def in startup.o
 void __attribute__ ((section(".after_vectors"),noreturn)) Reset_Handler (void);
 
-
 // cortex-m core exceptions
 void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) NMI_Handler(void);
 void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) HardFault_Handler(void);
@@ -14,74 +13,66 @@ void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))
 void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler"))) SysTick_Handler(void);
 
 // chip level interrupts
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  WWDG_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  PVD_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TAMPER_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  RTC_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  FLASH_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  RCC_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI0_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI1_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI2_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI3_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI4_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel1_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel2_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel3_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel4_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel5_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel6_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel7_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  ADC1_2_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USB_HP_CAN1_TX_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USB_LP_CAN1_RX0_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  CAN1_RX1_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  CAN1_SCE_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI9_5_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM1_BRK_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM1_UP_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM1_TRG_COM_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM1_CC_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM2_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM3_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM4_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  I2C1_EV_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  I2C1_ER_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  I2C2_EV_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  I2C2_ER_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  SPI1_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  SPI2_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USART1_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USART2_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USART3_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI15_10_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  RTCAlarm_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USBWakeUp_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM8_BRK_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM8_UP_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM8_TRG_COM_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM_CC_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  ADC3_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  FSMC_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  SDIO_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM5_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  SPI3_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  UART4_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  UART5_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM6_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM7_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA2_Channel1_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA2_Channel2_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA2_Channel3_IRQHandler(void)
-void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA2_Channel4_5_IRQHandler(void)
-
-
-
-
-
-
-
-
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  WWDG_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  PVD_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TAMPER_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  RTC_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  FLASH_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  RCC_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI0_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI1_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI2_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI3_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI4_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel1_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel2_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel3_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel4_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel5_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel6_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA1_Channel7_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  ADC1_2_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USB_HP_CAN1_TX_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USB_LP_CAN1_RX0_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  CAN1_RX1_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  CAN1_SCE_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI9_5_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM1_BRK_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM1_UP_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM1_TRG_COM_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM1_CC_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM2_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM3_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM4_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  I2C1_EV_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  I2C1_ER_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  I2C2_EV_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  I2C2_ER_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  SPI1_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  SPI2_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USART1_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USART2_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USART3_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  EXTI15_10_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  RTCAlarm_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  USBWakeUp_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM8_BRK_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM8_UP_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM8_TRG_COM_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM_CC_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  ADC3_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  FSMC_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  SDIO_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM5_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  SPI3_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  UART4_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  UART5_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM6_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  TIM7_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA2_Channel1_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA2_Channel2_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA2_Channel3_IRQHandler(void);
+void __attribute__ ((section(".after_vectors"),weak, alias ("Default_Handler")))  DMA2_Channel4_5_IRQHandler(void);
 
 
 typedef void(* const pHandler)(void);
@@ -109,6 +100,7 @@ __attribute__ ((section(".isr_vector"),used)) pHandler __isr_vectors[] =
 	PendSV_Handler,			// PendSV handler
 	SysTick_Handler,		// systick handler
 
+	// chip level interrupts
 	WWDG_IRQHandler, 			/* Window Watachdog */
 	PVD_IRQHandler,				/* PVD EXTI Line Detect */
 	TAMPER_IRQHandler,			/* Tamper */
